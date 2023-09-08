@@ -2,14 +2,13 @@ from flask import Flask, render_template
 
 app = Flask(__name__)
 
-@app.route("/")
-
+@app.route("/", methods=["POST", "GET"])
 def home():
-    return render_template("base.html")
+    return render_template("index.html")
 
-@app.route("/sobre")
+@app.route("/sobre", methods=["POST", "GET"])
 def sobre():
-    return "sobre"
+    return render_template("index.html")
     
 if __name__ == "__main__":
     app.run(debug=True)

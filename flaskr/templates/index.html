@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/flaskr/static/style/style.css">
+    <title>Página inicial | Pygreen</title>
+</head>
+<body>
+    <header class="header">
+        <a href=""><img src="{{ url_for('static', filename='/resources/images/LogoPygreen.png')}}" class="logo"></a>
+        <nav>
+            <ul>
+                <li class="header-items"><a href="">Trailer</a></li>
+                <li class="header-items"><a href="">Curso</a></li>
+                <li class="header-items"><a href="">Sobre</a></li>
+                <button class="auth-btn">Entrar / Cadastrar</button>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="hero-section">
+            <img src="{{ url_for('static', filename='/resources/images/logoPaison.png')}}" alt="">
+            <h1>seja bem-vindo</h1>
+            <p>Neste mundo incrível de aventura e educação, evolua suas habilidades em programação com Python, encare grandes desafios e se torne o Dev Mestre que tem dentro de você.</p>
+            <a href="">Jogar agora</a>
+        </section>
+        <section id="gallery-section">
+            <div class="gallery-container">
+                <div class="gallery-item">
+                    <figure>
+                        <figcaption></figcaption>
+                        <button></button><button></button>
+                    </figure>
+                </div>
+                <div class="gallery-item">
+                    <figure>
+                        <figcaption></figcaption>
+                        <button></button><button></button>
+                    </figure>
+                </div>
+                <div class="gallery-item">
+                    <figure>
+                        <figcaption></figcaption>
+                        <button></button><button></button>
+                    </figure>
+                </div>
+            </div>
+        </section>
+        <section></section>
+    </main>
+</body>
+</html>
