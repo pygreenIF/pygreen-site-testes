@@ -1,0 +1,69 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #1e1e1e;
+    color: red;
+    display: flex;
+    justify-content: center;
+}
+
+.quadrado-branco {
+    width: 200px;
+    height: 200px;
+    background-color: white;
+    align-content: center;
+    margin-top: 250px;
+    transition: all .5s;
+}
+
+.top {
+    justify-content: space-between;
+    z-index: 1;
+}
+
+.square1 {
+    width: 10px;
+    height: 20px;
+    background-color: #1e1e1e;
+    position: absolute;
+}
+
+.square2 {
+    width: 20px;
+    height: 10px;
+    background-color: #1e1e1e;
+    position: absolute;
+}
+
+.square3 {
+    width: 20px;
+    height: 10px;
+    background-color: #1e1e1e;
+    position: absolute;
+}
+
+.square4 {
+    width: 10px;
+    height: 20px;
+    background-color: #1e1e1e;
+    position: absolute;
+}
+
+.top-right {
+    transform: rotateY(180deg);
+}
+
+.quadrado-branco:hover{
+    transform: scale(1.5);
+} 
+
+.square5 {
+    width: 20px;
+    height: 10px;
+    background-color: red;
+}
+
+.bottom {
+    z-index: 2;
+    top: 150px;
+}
