@@ -8,6 +8,10 @@
     scroll-padding: 70px;
 }
 
+html {
+    font-size: 10px;
+}
+
 header {
     background-color: #131313;
     box-shadow: 0px 3px 10px #464646;
@@ -106,10 +110,10 @@ header {
     width: 500px;
     height: 600px;
     background-color: #131313;
-    display: flex;
+    /* display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-between; */
     border: 0;
 }
 
@@ -122,7 +126,7 @@ header {
 
 .title h1 {
     font-family: 'Press Start 2P';
-    font-size: 15px;
+    font-size: 1.5rem;
     color: white;
 }
 
@@ -228,7 +232,7 @@ header {
 }
 
 .container-hero h1 {
-    font-size: 48px;
+    font-size: 4.8rem;
     margin-top: -250px;
 }
 
@@ -253,6 +257,10 @@ header {
 }
 
 @media screen and (max-width:870px) {
+    html {
+        font-size: 8px;
+    }
+
     header {
         top: 0;
         position: sticky;
