@@ -8,3 +8,11 @@ function showMenu() {
         // document.querySelector('.icon')= <i class="fa-solid fa-xmark"></i>;
     }
 }
+
+const modal = document.querySelector('#modal-login');
+const openModal = document.querySelector('.login-button');
+const closeModal = document.querySelector('.button-start');
+
+openModal.addEventListener("click", () => {
+    modal.showModal();
+  });
