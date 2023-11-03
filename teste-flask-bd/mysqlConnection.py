@@ -15,7 +15,7 @@ def home():
     cur = db.cursor(dictionary=True)
     cur.execute("SELECT * FROM Pessoa")
     fetchdata = cur.fetchall()
-    
+    cur.close()
     return render_template('home.html', data = fetchdata)
 
 
@@ -28,7 +28,6 @@ def login():
     email = request.form.get('email')
     usuario = request.form.get('nome')
     senha = request.form.get('senha')
-    print(1) 
     cur = db.cursor(dictionary=True)
     cur.execute(f"SELECT * FROM Pessoa WHERE email='{email}'")
     fetchdata = cur.fetchall()
@@ -38,6 +37,8 @@ def login():
     else:
         post = f"INSERT INTO Pessoa (tipoID, email, nome, senha) VALUES (1, '{email}', '{usuario}', '{senha}')"
         cur.execute(post)
+        cur.close()
+        db.commit()
         return redirect('/acesso')
     
 @app.route("/acesso")
