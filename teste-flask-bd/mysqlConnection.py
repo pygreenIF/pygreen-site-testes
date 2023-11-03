@@ -1,22 +1,20 @@
 from flask import Flask, render_template, redirect, request, flash
-from flask_mysqldb import MySQL
+import mysql.connector
 
 app = Flask(__name__)
-app.secret_key = "super secret key"
 
-app.config['MYSQL_HOST'] = 'localhost'
-app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = 'pygreen2023'
-app.config['MYSQL_DB'] = 'auth'
-
-mysql = MySQL(app)
+db = mysql.connector.connect(
+    host='localhost',
+    user='root',
+    password='labinfo',
+    database='auth'
+)
 
 @app.route('/')
 def home():
-    cur = mysql.connection.cursor()
+    cur = db.cursor(dictionary=True)
     cur.execute("SELECT * FROM Pessoa")
     fetchdata = cur.fetchall()
-    cur.close()
     
     return render_template('home.html', data = fetchdata)
 
@@ -30,27 +28,17 @@ def login():
     email = request.form.get('email')
     usuario = request.form.get('nome')
     senha = request.form.get('senha')
-    
-    cur = mysql.connection.cursor()
-    cur.execute("SELECT * FROM Pessoa")
+    print(1) 
+    cur = db.cursor(dictionary=True)
+    cur.execute(f"SELECT * FROM Pessoa WHERE email='{email}'")
     fetchdata = cur.fetchall()
     
-    registro = 0
-    for users in fetchdata:
-        if email == users[2]:
-            flash('Já existe um cadastro com esse email')
-            registro+=1
-            return redirect('/registrar')
-        if usuario == users[3]:
-            flash('Esse nome de usuário não está disponível')
-            registro+=1
-            return redirect('/registrar')
-    if registro == 0:
-        post = f"INSERT INTO Pessoa (tipoID, email, nome, senha) VALUES ({1}, '{email}', '{usuario}', '{senha}')"
+    if(fetchdata):
+        raise Exception("Ei, deu erro... Já tem esse email ó")
+    else:
+        post = f"INSERT INTO Pessoa (tipoID, email, nome, senha) VALUES (1, '{email}', '{usuario}', '{senha}')"
         cur.execute(post)
-        mysql.connection.commit()
         return redirect('/acesso')
-    cur.close()
     
 @app.route("/acesso")
 def acesso():
